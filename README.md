@@ -1,4 +1,4 @@
-# Here is how to install and use the CoVaSEA system
+ Here is how to install and use the CoVaSEA system
 # You first have to download the project file onto your computer. Then you must download the Stanford Parser files that are included and # unzip them. You will need to download 5 packages via pip: 
 # 1) stanfordcorenlp
 # 2) nltk
