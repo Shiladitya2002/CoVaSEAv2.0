@@ -1,0 +1,4 @@
+Metadata_Records
+C:\Program Files\Java\jdk1.8.0_181\bin\java.exe
+D:\Documents\BHAVI Documents\Code\Python Code\Python Libraries\stanford-corenlp-full-2018-02-27\stanford-corenlp-full-2018-02-27
+EOF

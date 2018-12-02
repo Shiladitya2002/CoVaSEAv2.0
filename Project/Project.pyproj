@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="Build">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{4805eb83-a125-474a-aa2c-705abd836dc0}</ProjectGuid>
+    <ProjectHome />
+    <StartupFile>central_interface.py</StartupFile>
+    <SearchPath />
+    <WorkingDirectory>.</WorkingDirectory>
+    <OutputPath>.</OutputPath>
+    <ProjectTypeGuids>{888888a0-9f3d-457c-b088-3a5042f75d52}</ProjectTypeGuids>
+    <LaunchProvider>Standard Python launcher</LaunchProvider>
+    <InterpreterId>Global|PythonCore|3.6</InterpreterId>
+    <IsWindowsApplication>False</IsWindowsApplication>
+    <EnableNativeCodeDebugging>False</EnableNativeCodeDebugging>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)' == 'Debug'" />
+  <PropertyGroup Condition="'$(Configuration)' == 'Release'" />
+  <PropertyGroup>
+    <VisualStudioVersion Condition=" '$(VisualStudioVersion)' == '' ">10.0</VisualStudioVersion>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="graph_interface.py" />
+    <Compile Include="central_interface.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="triple_extraction.py" />
+    <Compile Include="unit_tests.py" />
+    <Compile Include="web_crawler.py" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Metadata_Records\doc1.txt" />
+    <Content Include="Metadata_Records\doc10.txt" />
+    <Content Include="Metadata_Records\doc11.txt" />
+    <Content Include="Metadata_Records\doc12.txt" />
+    <Content Include="Metadata_Records\doc13.txt" />
+    <Content Include="Metadata_Records\doc14.txt" />
+    <Content Include="Metadata_Records\doc15.txt" />
+    <Content Include="Metadata_Records\doc16.txt" />
+    <Content Include="Metadata_Records\doc17.txt" />
+    <Content Include="Metadata_Records\doc18.txt" />
+    <Content Include="Metadata_Records\doc19.txt" />
+    <Content Include="Metadata_Records\doc2.txt" />
+    <Content Include="Metadata_Records\doc20.txt" />
+    <Content Include="Metadata_Records\doc21.txt" />
+    <Content Include="Metadata_Records\doc22.txt" />
+    <Content Include="Metadata_Records\doc23.txt" />
+    <Content Include="Metadata_Records\doc24.txt" />
+    <Content Include="Metadata_Records\doc25.txt" />
+    <Content Include="Metadata_Records\doc26.txt" />
+    <Content Include="Metadata_Records\doc27.txt" />
+    <Content Include="Metadata_Records\doc28.txt" />
+    <Content Include="Metadata_Records\doc29.txt" />
+    <Content Include="Metadata_Records\doc3.txt" />
+    <Content Include="Metadata_Records\doc30.txt" />
+    <Content Include="Metadata_Records\doc31.txt" />
+    <Content Include="Metadata_Records\doc32.txt" />
+    <Content Include="Metadata_Records\doc4.txt" />
+    <Content Include="Metadata_Records\doc5.txt" />
+    <Content Include="Metadata_Records\doc6.txt" />
+    <Content Include="Metadata_Records\doc7.txt" />
+    <Content Include="Metadata_Records\doc8.txt" />
+    <Content Include="Metadata_Records\doc9.txt" />
+    <Content Include="Metadata_Records\Number_Of_Documents.txt" />
+    <Content Include="Test Metadata Records\Number_Of_Documents.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Metadata_Records" />
+    <Folder Include="Test Metadata Records" />
+  </ItemGroup>
+  <ItemGroup>
+    <InterpreterReference Include="Global|PythonCore|3.6" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
+</Project>
