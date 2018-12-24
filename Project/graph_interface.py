@@ -102,7 +102,7 @@ def graph_creator(articles, root, coreNLPfull, javaHome):
             vn = Namespace('https://verbs.colorado.edu/vn3.2.4-test-uvi/themroles/')
             
             triples = triple_extraction.triple_extraction(abstract, javaHome, coreNLPfull, nlp)
-            #print(len(triples))
+            print(len(triples))
             for triple in triples:
                 #print(triple)
                 graph.add((triple[0], vn.Predicate, triple[1]))
@@ -128,8 +128,8 @@ def graph_creator(articles, root, coreNLPfull, javaHome):
         #graph.close()
     nlp.close()
     del nlp
-    print("Num Triples: " + str(totalTriplesRetrieved))
-    print("Num Articles: " + str(totalArticlesRetrieved))
+    #print("Number of Semantic Description Triples: " + str(totalTriplesRetrieved))
+    #print("Number of Articles: " + str(totalArticlesRetrieved))
 def sparql_query(query, root):
     g = Graph()
     #Read the file

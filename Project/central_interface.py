@@ -138,8 +138,7 @@ while(not inp == 6):
             articles = articles[0:number]
         start_time = time.time()
         graph_interface.graph_creator(articles,root,coreNLPfull, javaHome)
-        #print("--- %s seconds for graph creation---" % (time.time() - start_time))
-        print("--- 164.8538473948383 seconds for graph creation---")
+        print("--- %s seconds for graph creation---" % (time.time() - start_time))
         break
     elif inp == 3:
         queryChoice = (input("Do you want to enter a query manually? (Y/N)"))
@@ -153,7 +152,7 @@ while(not inp == 6):
         #           WHERE {
         #              ?a dc:contributor ?author .
         #              ?a dc:title ?title
-        #           }"""
+        #          """
         start_time = time.time()
         res = graph_interface.sparql_query(sparqlQuery,root)
         at = 1

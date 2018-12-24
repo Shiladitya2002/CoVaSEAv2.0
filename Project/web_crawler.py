@@ -74,7 +74,7 @@ def core_crawler(numarticles, searchKey, metadatas):
                     #Increment number of accepted abstracts
                     numAccepted += 1
                     #Check if the number required is met
-                    if numAccepted >= numarticles/2:
+                    if numAccepted >= numarticles:
                         return abstracts
                 #If it doesn't work continue
                 except:
@@ -200,7 +200,7 @@ def scidir_crawler(numarticles, searchKey, metadatas):
                     #Increment number of accepted abstracts
                     numAccepted += 1
                     #Check if the number required is met
-                    if numAccepted >= numarticles/2:
+                    if numAccepted >= numarticles:
                         return abstracts
                 #If data missing continue
                 except:
@@ -282,7 +282,7 @@ def doaj_crawler(numarticles, searchKey, metadatas):
                 #Increment number of accepted abstracts
                 numAccepted += 1
                 #Check if the number required is met
-                if numAccepted >= numarticles/2:
+                if numAccepted >= numarticles:
                     return abstracts
             #If JSON not formatted standardly continue
             except:
@@ -379,7 +379,7 @@ def pubmed_crawler(numarticles, searchKey, metadatas):
                             #Increment number of accepted abstracts
                             numAccepted += 1
                             #Check if the number required is met
-                            if numAccepted >= numarticles/2:
+                            if numAccepted >= numarticles:
                                 return abstracts
                         #If XML not standard format continue
                         except:
@@ -387,10 +387,10 @@ def pubmed_crawler(numarticles, searchKey, metadatas):
                     #If article doesn't have an abstract throw an exception
                     else:
                         temp20 = -1
-                        #print("Error- Webcrawler Query Failure Code: Position: Abstract ID Search - PubMed , Status Code: " + str(r2.status_code))
+                        print("Error- Webcrawler Query Failure Code: Position: Abstract ID Search - PubMed , Status Code: " + str(r2.status_code))
                 else:
                     temp20 = -1
-                    #print("Exception - Pubmed Document ID:" + str(id) + " does not have an abstract or is in another language")
+                    print("Exception - Pubmed Document ID:" + str(id) + " does not have an abstract or is in another language")
             #If API call doesn't work throw an error
             else:
                 temp20 = -1
