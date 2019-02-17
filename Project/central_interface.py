@@ -2,7 +2,33 @@ import web_crawler
 import graph_interface
 import time
 import os
-
+def sparqlbuilder():
+    print("s")
+def sparqlexecuter(sparqlQuery):
+    global root
+    start_time = time.time()
+    res=graph_interface.sparql_query(sparqlQuery,root)  
+    return res
+def sparqlqueryoutput(res):
+    at = 1
+    for row in res:
+        str2 = "| "
+        for col in row:
+            str2 += col.toPython() + " | "
+        print("----------------------------------------------------------------------------")
+        print("Response #"+str(at))
+        print(str2)
+        at+=1
+    print("--- %s seconds for search query---" % (time.time() - start_time))
+def webCrawler(seachQuery, number):
+    start_time = time.time()
+    articles = web_crawler.crawl(number,searchQuery)
+    print("--- %s seconds for document retrieval---" % (time.time() - start_time))
+    if len(articles) > number:
+        articles = articles[0:number]
+    start_time = time.time()
+    graph_interface.graph_creator(articles,root,coreNLPfull, javaHome)
+    print("--- %s seconds for graph creation---" % (time.time() - start_time))
 def sparqlenter():
     print("What is the SPARQL search query you are searching for? ")
     print(r"Enter (Exit) when you want to stop writing the query")
@@ -79,6 +105,7 @@ import warnings
 warnings.filterwarnings("ignore")
 warnings.filterwarnings("ignore", category=ResourceWarning)
 #Environment Variable
+global root
 reader = open(r'Environment_Variables.txt', "r") 
 root = reader.readline()[0:-2]
 root = r"Metadata_Records"
@@ -107,38 +134,14 @@ while(not inp == 6):
         else:
             sparqlQuery = sparqlcomposer()
         number = int(input("How many articles do you want to search through? "))
-        start_time = time.time()
-        articles = web_crawler.crawl(number,searchQuery)
-        if len(articles) > number:
-            articles = articles[0:number]
-        print("--- %s seconds for document retrieval ---" % (time.time() - start_time))
-        start_time = time.time()
-        graph_interface.graph_creator(articles,root, coreNLPfull, javaHome)
-        print("--- %s seconds for graph creation---" % (time.time() - start_time))
-        start_time = time.time()
-        res=graph_interface.sparql_query(sparqlQuery,root)  
-        at = 1
-        for row in res:
-            str2 = "| "
-            for col in row:
-                str2 += col.toPython() + " | "
-            print("----------------------------------------------------------------------------")
-            print("Response #"+str(at))
-            print(str2)
-            at+=1
-        print("--- %s seconds for search query---" % (time.time() - start_time))
+        webCrawler(searchquery, number)
+        res = sparqlexecuter(sparqlQuery)
+        sparqlqueryoutput(res)
         break
     elif inp == 2:
         searchQuery = (input("What is the natural language search query you are searching for? "))
         number = int(input("How many articles do you want to search through? "))
-        start_time = time.time()
-        articles = web_crawler.crawl(number,searchQuery)
-        print("--- %s seconds for document retrieval---" % (time.time() - start_time))
-        if len(articles) > number:
-            articles = articles[0:number]
-        start_time = time.time()
-        graph_interface.graph_creator(articles,root,coreNLPfull, javaHome)
-        print("--- %s seconds for graph creation---" % (time.time() - start_time))
+        webCrawler(searchQuery, number)
         break
     elif inp == 3:
         queryChoice = (input("Do you want to enter a query manually? (Y/N)"))
@@ -153,18 +156,8 @@ while(not inp == 6):
         #              ?a dc:contributor ?author .
         #              ?a dc:title ?title
         #          """
-        start_time = time.time()
-        res = graph_interface.sparql_query(sparqlQuery,root)
-        at = 1
-        for row in res:
-            str2 = "| "
-            for col in row:
-                str2 += col.toPython() + " | "
-            print("----------------------------------------------------------------------------")
-            print("Response #"+str(at))
-            print(str2)
-            at+=1
-        print("--- %s seconds for search query---" % (time.time() - start_time))
+        res=sparqlexecuter(sparqlQuery)
+        sparqlqueryoutput(res)
     elif inp == 4:
         #print("1 - Change Metadata Storage Location")
         print("1 - Change Location of Stanford CoreNLP Full Installation")

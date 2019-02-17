@@ -5,7 +5,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{4805eb83-a125-474a-aa2c-705abd836dc0}</ProjectGuid>
     <ProjectHome />
-    <StartupFile>central_interface.py</StartupFile>
+    <StartupFile>gui_interface.py</StartupFile>
     <SearchPath />
     <WorkingDirectory>.</WorkingDirectory>
     <OutputPath>.</OutputPath>
