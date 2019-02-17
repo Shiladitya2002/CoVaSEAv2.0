@@ -1,5 +1,5 @@
 Here is how to install and use the CoVaSEA system
-You first have to download the project file onto your computer. Then you must download the Stanford Parser files that are included and # unzip them. You will need to download 5 packages via pip: 
+You first have to download the project file onto your computer. This version specifically must be downloaded as it doesn't work with later versions, which is why this is included. If you wish to see the full version of Stanford Core NLP go to this link: https://stanfordnlp.github.io/CoreNLP/. Other than Stanford Core NLP, you will need to download 5 packages via pip: 
 1) stanfordcorenlp
 2) nltk
 3) rdflib
